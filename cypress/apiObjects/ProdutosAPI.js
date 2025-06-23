@@ -19,15 +19,23 @@ class ProdutosAPI {
         });
     }
 
-    cadastrarProduto(produto, token) {
-        return cy.request({
+    cadastrarProduto(produto, token = null) {
+        const requestOptions = {
             method: 'POST',
             url: `${this.baseURL}/produtos`,
             body: produto,
-            headers: {
+            failOnStatusCode: false
+        };
+
+        if (token) {
+            requestOptions.headers = {
                 Authorization: token,
-            },
-        });
+            };
+
+            return cy.request(requestOptions);
+        }
+
+        return cy.request(requestOptions);
     }
 
     editarProduto(produtoId, produtoAtualizado, token) {

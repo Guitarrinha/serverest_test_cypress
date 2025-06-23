@@ -2,7 +2,7 @@ import UsuariosAPI from '../../apiObjects/UsuariosAPI';
 import { generateUniqueUserData } from '../utils/dataGenerator';
 
 export function garantirUsuarioCadastrado() {
-    cy.log('Garantindo que ao menos um usuário exista...');
+    cy.log('Action: Garantindo que ao menos um usuário exista...');
     return UsuariosAPI.getUsers().then(response => {
         if (response.body.usuarios.length === 0) {
             cy.log('Nenhum usuário encontrado. Criando um novo...');
@@ -16,7 +16,7 @@ export function garantirUsuarioCadastrado() {
 }
 
 export function buscarUsuarioValido() {
-    cy.log(`Buscando usuário no sistema`);
+    cy.log(`Action: Buscando usuário no sistema`);
 
     UsuariosAPI.getUsers().then(response => {
 
@@ -30,7 +30,7 @@ export function buscarUsuarioValido() {
 }
 
 export function buscarUsuariosCadastrados() {
-    cy.log('Buscando todos os usuários cadastrados na API...');
+    cy.log('Action: Buscando todos os usuários cadastrados na API...');
     return UsuariosAPI.getUsers().then(response => {
         expect(response.status).to.eq(200);
         expect(response.body.usuarios).to.not.be.empty;

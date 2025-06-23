@@ -32,7 +32,6 @@ export function validarProdutoCadastrado() {
   });
 }
 
-
 export function limparProdutoDeTeste() {
   cy.get('@produtoId', { log: false }).then(produtoId => {
     if (produtoId) {
@@ -42,4 +41,11 @@ export function limparProdutoDeTeste() {
       });
     }
   });
+}
+
+export function tentarCadastrarProdutoSemToken() {
+  cy.log('Action: Tentando cadastrar produto sem token...');
+  const produto = generateUniqueProductData();
+
+  ProdutosAPI.cadastrarProduto(produto, null).as('responseCadastroSemToken');
 }
