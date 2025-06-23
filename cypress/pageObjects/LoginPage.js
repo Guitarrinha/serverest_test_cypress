@@ -4,7 +4,7 @@ class LoginPage {
     emailInput: '[data-testid="email"]',
     senhaInput: '[data-testid="senha"]',
     entrarButton: '[data-testid="entrar"]',
-    errorMessage: "",
+    errorMessage: '.alert',
   };
 
   visit() {
