@@ -1,0 +1,11 @@
+{
+  "validUser": {
+    "name": "admin",
+    "username": "admin@example.com",
+    "password": "senhaSegura123!"
+  },
+  "invalidUser": {
+    "username": "naoexiste@example.com",
+    "password": "senhaIncorreta"
+  }
+}
