@@ -8,20 +8,18 @@ module.exports = defineConfig({
     specPattern: "cypress/e2e/feature/**/*.{feature,features}",
     async setupNodeEvents(on, config) {
       await addCucumberPreprocessorPlugin(on, config);
+
       on(
         "file:preprocessor",
         createBundler({
           plugins: [createEsbuildPlugin(config)],
         })
       );
+
       return config;
     },
-  },
-  reporter: 'mochawesome',
-  reporterOptions: {
-    reporterDir: 'cypress/results',
-    overwrite: true,
-    html: true,
-    json: false
-  },
+    env: {
+      stepDefinitions: "cypress/support/step_definitions/**/*.{js,ts}"
+    }
+  }
 });
