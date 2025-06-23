@@ -14,3 +14,27 @@ export function garantirUsuarioCadastrado() {
         }
     });
 }
+
+export function buscarUsuarioValido() {
+    cy.log(`Buscando usuário no sistema`);
+
+    UsuariosAPI.getUsers().then(response => {
+
+        expect(response.status).to.eq(200);
+        expect(response.body.usuarios).to.not.be.empty;
+
+        const usuarioDinamico = response.body.usuarios[0];
+
+        cy.wrap(usuarioDinamico).as('usuarioDinamico');
+    });
+}
+
+export function buscarUsuariosCadastrados() {
+    cy.log('Buscando todos os usuários cadastrados na API...');
+    return UsuariosAPI.getUsers().then(response => {
+        expect(response.status).to.eq(200);
+        expect(response.body.usuarios).to.not.be.empty;
+
+        return response.body.usuarios;
+    });
+}

@@ -1,5 +1,5 @@
 class LoginPage {
-    
+
   selectors = {
     emailInput: '[data-testid="email"]',
     senhaInput: '[data-testid="senha"]',
