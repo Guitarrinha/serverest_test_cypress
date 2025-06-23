@@ -1,6 +1,6 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 import LoginPage from '../../pageObjects/LoginPage';
-import HomePage from "../../pageObjects/homePage";
+import HomePage from "../../pageObjects/HomePage";
 import usersData from '../../fixtures/users.json';
 
 Given('que estou na pagina de login', () => {
