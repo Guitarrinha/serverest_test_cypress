@@ -1,7 +1,7 @@
 Feature: Cadastro de Usuários na UI
   Como um novo usuário
-  Eu quero me cadastrar na plataforma Serverest
-  Para poder acessar as funcionalidades de compra
+  Eu quero me cadastrar na Serverest
+  Para poder acessar a plataforma
 
   @front @regression
   Scenario: Cadastro de um usuário padrão com sucesso
