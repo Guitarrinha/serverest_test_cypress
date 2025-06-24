@@ -23,7 +23,7 @@ export function cadastrarNovoUsuarioPelaUI(tipoUsuario) {
 }
 
 export function validarUsuarioCriadoPelaAPI() {
-    cy.log('Validando via API se o usuário cadastrado existe no sistema...');
+    cy.log('Action: Validando via API se o usuário cadastrado existe no sistema...');
     CadastroPage.verificarMensagemSucesso();
 
     buscarUsuariosCadastrados().then(listaDeUsuarios => {
